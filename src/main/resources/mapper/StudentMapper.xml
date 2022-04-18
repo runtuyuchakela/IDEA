@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--xmlns="http://mybatis.org/schema/mybatis-mapper"-->
+<mapper namespace="com.sx.sch.mapper.StudentMapper">
+    <select id="findAll" resultType="Student">
+        select * from student
+    </select>
+    <select id="findByName" resultType="Student">
+        select * from student where name=#{name}
+    </select>
+    <select id="findPswByName" resultType="String">
+        select password from student where name = #{name}
+    </select>
+    <insert id="save">
+        insert into student(name,password) value (#{name},#{password})
+    </insert>
+</mapper>
